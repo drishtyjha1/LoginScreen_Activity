@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoginScreen_Activity</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+</resources>
