@@ -1,5 +1,6 @@
 package com.example.loginscreen_activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,13 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginScreen_Activity extends AppCompatActivity {
 
 
  private EditText etenterEmail;
+ private SharedPreferences.Editor editor;
  private EditText mEtPassword;
  private CheckBox mChRememberMe;
 
@@ -25,10 +29,10 @@ public class LoginScreen_Activity extends AppCompatActivity {
              mEtPassword = findViewById(R.id.etPassword);
              etenterEmail=findViewById(R.id.editTextTextEmailAddress);
              mChRememberMe=findViewById(R.id.chk_remember);
-        Button btnlogin = findViewById(R.id.button);
+             Button btnlogin = findViewById(R.id.button);
 
-        SharedPreferences prefManager =getApplicationContext().getSharedPreferences( "SHARED",MODE_PRIVATE);
-        final SharedPreferences.Editor editor = prefManager.edit();
+        SharedPreferences prefManager = getApplicationContext().getSharedPreferences( "SHARED",MODE_PRIVATE);
+        editor = prefManager.edit();
 
                 btnlogin.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -48,10 +52,8 @@ public class LoginScreen_Activity extends AppCompatActivity {
                     moveToViewprofileActivity();
                     }
                 });
-                boolean isAlreadyLogin=prefManager.getBoolean("ISREMBERME",false);
-
-                if(isAlreadyLogin)
-                {
+                boolean isAlreadyLogin=prefManager.getBoolean("ISREMEMBER",false);
+                if(isAlreadyLogin) {
                     moveToViewprofileActivity();
                 }
     }
@@ -61,4 +63,21 @@ public class LoginScreen_Activity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        SharedPreferences prefManager = getApplicationContext().getSharedPreferences( "SHARED",MODE_PRIVATE);
+        SharedPreferences.Editor editor;
+        editor = prefManager.edit();
+
+        if (requestCode == 1000) {
+            if (resultCode == Activity.RESULT_OK) {
+                String editedUsername = data.getExtras().getString("EDITED_USERNAME");
+                etenterEmail.setText(editedUsername);
+            } else {
+                Toast.makeText(LoginScreen_Activity.this, "User Cancelled operation", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }
+

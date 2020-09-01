@@ -2,4 +2,12 @@
     <string name="app_name">LoginScreen_Activity</string>
     <string name="enter_your_email">Enter your Email</string>
     <string name="enter_your_password">Enter Your Password</string>
+    <string name="login">Login</string>
+    <string name="remember_me">Remember me</string>
+    <string name="logout">Logout</string>
+    <string name="usernamd">Usernamd</string>
+    <string name="edit">EDIT</string>
+    <string name="alert">Alert</string>
+    <string name="snackbar_alert">Snackbar Alert</string>
+
 </resources>

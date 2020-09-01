@@ -14,44 +14,60 @@
         android:layout_marginTop="124dp"
         android:background="#92A526"
         android:src="@drawable/ic_baseline_person_24"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
+        android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usernamd"
+        android:hint="@string/usernamd"
         app:layout_constraintBottom_toTopOf="@+id/profile_pic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.632"
-        tools:layout_editor_absoluteX="-16dp" />
+        tools:layout_editor_absoluteX="-16dp"
+        android:autofillHints="usernamd" />
+
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EDIT"
+        android:text="@string/alert"
         android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_pic"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintVertical_bias="0.671" />
 
-    <ImageView
-        android:layout_width="59dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="68dp"
-        android:background="#F37979"
-        android:src="@drawable/ic_baseline_edit_24"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="1.0"
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <Button
+        android:id="@+id/btn_snakbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="132dp"
+        android:text="@string/snackbar_alert"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_logout"
+        app:layout_constraintVertical_bias="0.834" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
